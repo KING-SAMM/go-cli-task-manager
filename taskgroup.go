@@ -15,7 +15,7 @@ type TaskGroup struct {
 func newTaskGroup(name string) TaskGroup {
 	tg := TaskGroup{
 		name: name,
-		items: map[string]bool{time.Now().Format(time.RFC1123)+ ": " +"Study algoritms ": false, time.Now().Format(time.RFC1123)+ ": " +"Finsh my book ": false},
+		items: map[string]bool{time.Now().Format(time.RFC1123)+ ": \t" +"Study algoritms": false, time.Now().Format(time.RFC1123)+ ": \t" +"Finsh my book": false},
 		// completed: false,
 	}
 
@@ -26,11 +26,11 @@ func newTaskGroup(name string) TaskGroup {
 func (tg TaskGroup) format() string {
 	fs := "TASK GROUP: \n"
 	fs += "==========\n"
-	fs += "Time Created                   Task                 Completed \n"
-	fs += "------------                   -----                ---------- \n"
+	fs += "Time Created  \t\t\tTask  \t\t\tCompleted \n"
+	fs += "------------  \t\t\t----- \t\t\t---------- \n"
 
 	for k, v := range tg.items {
-		fs += fmt.Sprintf("%-12v ---- %v \n", k+":", v)
+		fs += fmt.Sprintf("%-12v  ----\t%v \n", k+"\t", v)
 	}
 
 	return fs
